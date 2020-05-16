@@ -80,7 +80,7 @@ jobs:
           signingKey: ${{ secrets.CACHIX_SIGNING_KEY }}
       - run: cachix use iohk
       - name: Build
-        run: nix-build -A static.tenpureto.components.exes.tenpureto
+        run: nix-build --keep-going -A static.tenpureto.components.exes.tenpureto
       - name: Upload
         uses: actions/upload-artifact@v1
         with:
